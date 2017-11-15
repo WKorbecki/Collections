@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="collectionsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="id_item" />
+    </Key>
+    <Property Name="id_item" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="text" Nullable="false" />
+    <Property Name="date_add" Type="date" Nullable="false" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+    <Property Name="private" Type="int" Nullable="false" />
+    <Property Name="id_type" Type="int" Nullable="false" />
+    <Property Name="location" Type="text" Nullable="false" />
+    <Property Name="comments" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loan">
+    <Key>
+      <PropertyRef Name="id_loan" />
+    </Key>
+    <Property Name="id_loan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_item" Type="int" />
+    <Property Name="id_user" Type="int" />
+    <Property Name="date_loan" Type="date" />
+    <Property Name="date_return" Type="date" />
+    <Property Name="comments" Type="text" />
+  </EntityType>
+  <EntityType Name="type">
+    <Key>
+      <PropertyRef Name="id_type" />
+    </Key>
+    <Property Name="id_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="text" Nullable="false" />
+    <Property Name="email" Type="text" Nullable="false" />
+    <Property Name="password" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="collectionsDBModelStoreContainer">
+    <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loan" EntityType="Self.loan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="type" EntityType="Self.type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

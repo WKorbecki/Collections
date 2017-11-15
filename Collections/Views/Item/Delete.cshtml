@@ -1,0 +1,59 @@
+﻿@model Collections.Models.Item
+
+@{
+    ViewBag.Title = "Usuwanie przedmiotu";
+    List<Collections.Models.Type> typeList = ViewBag.typeList;
+    List<Collections.Models.User> userList = ViewBag.userList;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Jesteś pewny, że chcesz usunąć ten przedmiot?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUser)
+        </dt>
+
+        <dd>
+            @userList.Select(e => e).Where(e => e.ID == Model.IDUser).First().Name
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDType)
+        </dt>
+
+        <dd>
+            @typeList.Select(e => e).Where(e => e.ID == Model.IDType).First().Name
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.IDItem)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do Listy", "Index")
+        </div>
+    }
+</div>

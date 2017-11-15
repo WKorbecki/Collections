@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="collectionsDBModelStoreContainer" CdmEntityContainer="collectionsDBEntities">
+    <EntitySetMapping Name="item">
+      <EntityTypeMapping TypeName="collectionsDBModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="id_item" ColumnName="id_item" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="date_add" ColumnName="date_add" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="private" ColumnName="private" />
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loan">
+      <EntityTypeMapping TypeName="collectionsDBModel.loan">
+        <MappingFragment StoreEntitySet="loan">
+          <ScalarProperty Name="id_loan" ColumnName="id_loan" />
+          <ScalarProperty Name="id_item" ColumnName="id_item" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="date_loan" ColumnName="date_loan" />
+          <ScalarProperty Name="date_return" ColumnName="date_return" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type">
+      <EntityTypeMapping TypeName="collectionsDBModel.type">
+        <MappingFragment StoreEntitySet="type">
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="collectionsDBModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

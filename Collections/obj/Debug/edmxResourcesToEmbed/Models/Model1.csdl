@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="collectionsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="id_item" />
+    </Key>
+    <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="date_add" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="private" Type="Int32" Nullable="false" />
+    <Property Name="id_type" Type="Int32" Nullable="false" />
+    <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loan">
+    <Key>
+      <PropertyRef Name="id_loan" />
+    </Key>
+    <Property Name="id_loan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_item" Type="Int32" />
+    <Property Name="id_user" Type="Int32" />
+    <Property Name="date_loan" Type="DateTime" Precision="0" />
+    <Property Name="date_return" Type="DateTime" Precision="0" />
+    <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="type">
+    <Key>
+      <PropertyRef Name="id_type" />
+    </Key>
+    <Property Name="id_type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="collectionsDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="item" EntityType="Self.item" />
+    <EntitySet Name="loan" EntityType="Self.loan" />
+    <EntitySet Name="type" EntityType="Self.type" />
+    <EntitySet Name="user" EntityType="Self.user" />
+  </EntityContainer>
+</Schema>
